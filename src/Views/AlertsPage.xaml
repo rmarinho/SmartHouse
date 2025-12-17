@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.AlertsPage"
+             Title="Alerts"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <Label Text="Alerts & Activity" FontSize="32" FontAttributes="Bold" />
+            
+            <Label Text="Critical Alerts" FontSize="18" FontAttributes="Bold" TextColor="#EF4444" Margin="0,10,0,0" />
+            
+            <!-- Alert 1 - Critical -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#EF4444" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <VerticalStackLayout Spacing="10">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                        <Label Grid.Column="0" Text="🚨" FontSize="32" VerticalOptions="Start" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="Smoke Detected" FontSize="16" FontAttributes="Bold" TextColor="#EF4444" />
+                            <Label Text="Kitchen smoke detector" FontSize="14" TextColor="{DynamicResource Gray600}" />
+                            <Label Text="2 minutes ago" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                    <Button Text="View Details" 
+                            BackgroundColor="#EF4444" 
+                            TextColor="White" 
+                            CornerRadius="10"
+                            HeightRequest="40" />
+                </VerticalStackLayout>
+            </Frame>
+            
+            <Label Text="Warnings" FontSize="18" FontAttributes="Bold" TextColor="#F59E0B" Margin="0,20,0,0" />
+            
+            <!-- Alert 2 - Warning -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#F59E0B" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🚪" FontSize="32" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Front Door Open" FontSize="16" FontAttributes="Bold" TextColor="#F59E0B" />
+                        <Label Text="Open for 15 minutes" FontSize="14" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="15 minutes ago" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <!-- Alert 3 - Warning -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#F59E0B" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔋" FontSize="32" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Low Battery" FontSize="16" FontAttributes="Bold" TextColor="#F59E0B" />
+                        <Label Text="Motion sensor battery at 15%" FontSize="14" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="1 hour ago" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <Label Text="Recent Activity" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <!-- Activity 1 -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="💡" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Living Room Lights" FontSize="14" FontAttributes="Bold" />
+                        <Label Text="Turned on" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="5m ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <!-- Activity 2 -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🌡️" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Thermostat" FontSize="14" FontAttributes="Bold" />
+                        <Label Text="Temperature set to 21°C" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="12m ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <!-- Activity 3 -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔒" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Front Door" FontSize="14" FontAttributes="Bold" />
+                        <Label Text="Locked by automation" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="1h ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

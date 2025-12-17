@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.RoomsPage"
+             Title="Rooms"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <Label Text="Rooms" FontSize="32" FontAttributes="Bold" />
+            
+            <!-- Room Grid -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" RowSpacing="15">
+                
+                <!-- Living Room -->
+                <Frame Grid.Row="0" Grid.Column="0" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🛋️" FontSize="40" />
+                        <Label Text="Living Room" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="5 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="3 active" FontSize="12" TextColor="#10B981" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Kitchen -->
+                <Frame Grid.Row="0" Grid.Column="1" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🍳" FontSize="40" />
+                        <Label Text="Kitchen" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="3 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="1 active" FontSize="12" TextColor="#10B981" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Bedroom -->
+                <Frame Grid.Row="1" Grid.Column="0" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🛏️" FontSize="40" />
+                        <Label Text="Bedroom" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="4 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="0 active" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Bathroom -->
+                <Frame Grid.Row="1" Grid.Column="1" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🚿" FontSize="40" />
+                        <Label Text="Bathroom" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="2 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="0 active" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Office -->
+                <Frame Grid.Row="2" Grid.Column="0" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="💼" FontSize="40" />
+                        <Label Text="Office" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="6 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="4 active" FontSize="12" TextColor="#10B981" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Garage -->
+                <Frame Grid.Row="2" Grid.Column="1" CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="🚗" FontSize="40" />
+                        <Label Text="Garage" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="2 devices" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        <Label Text="0 active" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+            </Grid>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

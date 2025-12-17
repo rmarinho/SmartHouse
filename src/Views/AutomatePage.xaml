@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.AutomatePage"
+             Title="Automate"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <Grid RowDefinitions="*,Auto" Padding="20">
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="20">
+                
+                <Label Text="Automations" FontSize="32" FontAttributes="Bold" />
+                
+                <Label Text="Active" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0" />
+                
+                <!-- Automation 1 -->
+                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0" Text="🌙" FontSize="32" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                            <Label Text="Night Mode" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Turn off lights at 11 PM" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Automation 2 -->
+                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0" Text="🏃" FontSize="32" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                            <Label Text="Motion Lights" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="When motion detected → lights on" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <!-- Automation 3 -->
+                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0" Text="🌡️" FontSize="32" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                            <Label Text="Climate Control" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Adjust temp when away" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+                <Label Text="Inactive" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+                
+                <!-- Automation 4 -->
+                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}" Opacity="0.6">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                        <Label Grid.Column="0" Text="🚪" FontSize="32" VerticalOptions="Center" />
+                        <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                            <Label Text="Lock at Night" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="Lock all doors at midnight" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="2" IsToggled="False" VerticalOptions="Center" />
+                    </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <!-- Add Button -->
+        <Button Grid.Row="1" 
+                Text="+ Create Automation" 
+                FontSize="16"
+                FontAttributes="Bold"
+                BackgroundColor="{DynamicResource Primary}" 
+                TextColor="White"
+                CornerRadius="15"
+                HeightRequest="55"
+                Margin="0,10,0,0" />
+        
+    </Grid>
+</ContentPage>

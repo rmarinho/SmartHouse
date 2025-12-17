@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.HomePage"
+             Title="Home"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <!-- Welcome Header -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Welcome Home" FontSize="28" FontAttributes="Bold" />
+                    <Label Text="Everything is under control" FontSize="14" TextColor="{DynamicResource Gray600}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Quick Scenes -->
+            <Label Text="Quick Scenes" FontSize="20" FontAttributes="Bold" Margin="0,10,0,0" />
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout Spacing="15">
+                    <Frame CornerRadius="15" Padding="20,15" BackgroundColor="#6366F1" HasShadow="False" WidthRequest="140" HeightRequest="100">
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="💡" FontSize="32" HorizontalOptions="Center" />
+                            <Label Text="Good Night" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    
+                    <Frame CornerRadius="15" Padding="20,15" BackgroundColor="#10B981" HasShadow="False" WidthRequest="140" HeightRequest="100">
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="☀️" FontSize="32" HorizontalOptions="Center" />
+                            <Label Text="Good Morning" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    
+                    <Frame CornerRadius="15" Padding="20,15" BackgroundColor="#F59E0B" HasShadow="False" WidthRequest="140" HeightRequest="100">
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Label Text="🏡" FontSize="32" HorizontalOptions="Center" />
+                            <Label Text="Leave Home" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <!-- Status Cards -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15" RowSpacing="15" Margin="0,10,0,0">
+                <!-- Energy Card -->
+                <Frame Grid.Column="0" CornerRadius="15" HasShadow="False" Padding="15" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="⚡" FontSize="28" />
+                        <Label Text="Energy" FontSize="14" FontAttributes="Bold" />
+                        <Label Text="2.4 kWh" FontSize="18" TextColor="{DynamicResource Primary}" FontAttributes="Bold" />
+                        <Label Text="Today" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- Security Card -->
+                <Frame Grid.Column="1" CornerRadius="15" HasShadow="False" Padding="15" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="🔒" FontSize="28" />
+                        <Label Text="Security" FontSize="14" FontAttributes="Bold" />
+                        <Label Text="Armed" FontSize="18" TextColor="#10B981" FontAttributes="Bold" />
+                        <Label Text="All secure" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <!-- Climate Card -->
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🌡️" FontSize="32" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Climate" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Living Room" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="21°C" FontSize="24" FontAttributes="Bold" TextColor="{DynamicResource Primary}" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <!-- Favorites -->
+            <Label Text="Favorites" FontSize="20" FontAttributes="Bold" Margin="0,10,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="💡" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Living Room Lights" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="On · Brightness 80%" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔌" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Smart Plug" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Off" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="2" IsToggled="False" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <Label Text="Settings" FontSize="32" FontAttributes="Bold" />
+            
+            <!-- Homes Section -->
+            <Label Text="Homes" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🏠" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="My Home" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Default home" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <!-- Users Section -->
+            <Label Text="Users & Access" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="👤" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Family Members" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="3 members" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <!-- Integrations Section -->
+            <Label Text="Integrations" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔗" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Home Assistant" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Connected" FontSize="12" TextColor="#10B981" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🍎" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="HomeKit" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Not connected" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <!-- Notifications Section -->
+            <Label Text="Notifications" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Push Notifications" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Receive alerts on your device" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="1" IsToggled="True" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Critical Alerts Only" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Only receive critical alerts" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="1" IsToggled="False" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <!-- Security Section -->
+            <Label Text="Security" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Biometric Lock" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Require face/fingerprint" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Switch Grid.Column="1" IsToggled="True" VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔐" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Lock Controls" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Confirm before locking/unlocking" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <!-- Other Section -->
+            <Label Text="Other" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="📱" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="About Casa" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Version 1.0.0" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="❓" FontSize="28" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Help & Support" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
