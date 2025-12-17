@@ -7,6 +7,12 @@ public partial class SettingsPage : ContentPage
         InitializeComponent();
     }
 
+    private async void OnHomeAssistantTapped(object sender, EventArgs e)
+    {
+        // Navigate to Home Assistant test page
+        await Shell.Current.GoToAsync(nameof(HomeAssistantTestPage));
+    }
+
     private void OnResetOnboardingTapped(object sender, EventArgs e)
     {
         // Clear onboarding flag

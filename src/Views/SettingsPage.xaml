@@ -57,7 +57,7 @@
                     <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
                 </Grid>
                 <Frame.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Tapped="OnHomeAssistantTapped" />
                 </Frame.GestureRecognizers>
             </Frame>
             

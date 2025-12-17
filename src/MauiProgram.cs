@@ -37,6 +37,7 @@ public static class MauiProgram
 		builder.Services.AddTransient<AutomateViewModel>();
 		builder.Services.AddTransient<AlertsViewModel>();
 		builder.Services.AddTransient<OnboardingViewModel>();
+		builder.Services.AddTransient<HomeAssistantTestViewModel>();
 
 		// Register Views
 		builder.Services.AddTransient<HomePage>();
@@ -45,6 +46,8 @@ public static class MauiProgram
 		builder.Services.AddTransient<AlertsPage>();
 		builder.Services.AddTransient<SettingsPage>();
 		builder.Services.AddTransient<OnboardingPage>();
+		builder.Services.AddTransient<HomeAssistantTestPage>();
+		builder.Services.AddTransient<RoomDetailPage>();
 
 		return builder.Build();
 	}
