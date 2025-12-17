@@ -1,0 +1,112 @@
+name: Build MAUI App
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '10.0.x'
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    name: Build Android
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-android
+
+      - name: Restore dependencies
+        run: dotnet restore src/SmartHouse.csproj
+
+      - name: Build Android
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-android --no-restore
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build
+          path: src/bin/Release/net10.0-android/*.apk
+          if-no-files-found: ignore
+
+  build-ios:
+    runs-on: macos-15
+    name: Build iOS
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-ios
+
+      - name: Restore dependencies
+        run: dotnet restore src/SmartHouse.csproj
+
+      - name: Build iOS (Simulator)
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-ios --no-restore
+
+  build-maccatalyst:
+    runs-on: macos-15
+    name: Build Mac Catalyst
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-maccatalyst
+
+      - name: Restore dependencies
+        run: dotnet restore src/SmartHouse.csproj
+
+      - name: Build Mac Catalyst
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-maccatalyst --no-restore
+
+  build-windows:
+    runs-on: windows-latest
+    name: Build Windows
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install MAUI workload
+        run: dotnet workload install maui-windows
+
+      - name: Restore dependencies
+        run: dotnet restore src/SmartHouse.csproj
+
+      - name: Build Windows
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-windows10.0.19041.0 --no-restore
+
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: src/bin/Release/net10.0-windows10.0.19041.0/
+          if-no-files-found: ignore
