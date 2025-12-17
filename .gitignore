@@ -428,3 +428,4 @@ FodyWeavers.xsd
 *.msp
 obj
 src/Resources/.DS_Store
+*/.DS_Store
