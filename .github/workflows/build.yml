@@ -2,15 +2,16 @@ name: Build MAUI App
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
   workflow_dispatch:
 
 env:
   DOTNET_VERSION: '10.0.x'
   DOTNET_NOLOGO: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
+  XCODE_VERSION: 'Xcode_26.1.1.app'  # Adjust based on available Xcode versions on GitHub-hosted runners
 
 jobs:
   build-android:
@@ -24,15 +25,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-
-      # - name: Install MAUI workload
-      #   run: dotnet workload install android maui-android
-
-      - name: Restore dependencies
-        run: dotnet restore src/SmartHouse.csproj
+      
+      - name: Restore MAUI workload
+        run: dotnet workload restore
 
       - name: Build Android
-        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-android --no-restore
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-android 
 
       - name: Upload Android artifact
         uses: actions/upload-artifact@v4
@@ -49,21 +47,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.1.1.app
+        run: sudo xcode-select -s /Applications/${{ env.XCODE_VERSION }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Install MAUI workload
+      - name: Restore MAUI workload
         run: dotnet workload restore
 
-      - name: Restore dependencies
-        run: dotnet restore src/SmartHouse.csproj
-
       - name: Build iOS (Simulator)
-        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-ios --no-restore
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-ios
 
   build-maccatalyst:
     runs-on: macos-15
@@ -73,21 +68,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_26.1.1.app
+        run: sudo xcode-select -s /Applications/${{ env.XCODE_VERSION }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Install MAUI workload
+      - name: Retore MAUI workload
         run: dotnet workload restore
 
-      - name: Restore dependencies
-        run: dotnet restore src/SmartHouse.csproj
-
       - name: Build Mac Catalyst
-        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-maccatalyst --no-restore
+        run: dotnet build src/SmartHouse.csproj -c Release -f net10.0-maccatalyst -r maccatalyst-x64
 
   build-windows:
     runs-on: windows-latest
@@ -101,8 +93,8 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: Install MAUI workload
-        run: dotnet workload install maui
+      - name: Retore MAUI workload
+        run: dotnet workload restore
 
       - name: Restore dependencies
         run: dotnet restore src/SmartHouse.csproj
