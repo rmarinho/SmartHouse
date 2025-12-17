@@ -56,8 +56,8 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      # - name: Install MAUI workload
-      #   run: dotnet workload install maui
+      - name: Install MAUI workload
+        run: dotnet workload restore
 
       - name: Restore dependencies
         run: dotnet restore src/SmartHouse.csproj
@@ -81,7 +81,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Install MAUI workload
-        run: dotnet workload install maui --version 10.0.100
+        run: dotnet workload restore
 
       - name: Restore dependencies
         run: dotnet restore src/SmartHouse.csproj
