@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace SmartHouse.ViewModels;
 
-public class RoomsViewModel : BaseViewModel
+public partial class RoomsViewModel : BaseViewModel
 {
     private readonly IDataService _dataService;
 

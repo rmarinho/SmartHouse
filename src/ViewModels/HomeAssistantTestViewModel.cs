@@ -1,140 +1,69 @@
 using System.Collections.ObjectModel;
-using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using SmartHouse.Models;
 using SmartHouse.Services;
 using DeviceModel = SmartHouse.Models.Device;
 
 namespace SmartHouse.ViewModels;
 
-public class HomeAssistantTestViewModel : BaseViewModel
+public partial class HomeAssistantTestViewModel : BaseViewModel
 {
     private readonly IHomeAssistantService _homeAssistantService;
 
     public ObservableCollection<DeviceModel> Devices { get; } = new();
     public ObservableCollection<Scene> Scenes { get; } = new();
 
+    [ObservableProperty]
     private string _url = string.Empty;
-    public string Url
-    {
-        get => _url;
-        set => SetProperty(ref _url, value);
-    }
 
+    [ObservableProperty]
     private string _token = string.Empty;
-    public string Token
-    {
-        get => _token;
-        set => SetProperty(ref _token, value);
-    }
 
+    [ObservableProperty]
     private string _testEntityId = string.Empty;
-    public string TestEntityId
-    {
-        get => _testEntityId;
-        set => SetProperty(ref _testEntityId, value);
-    }
 
+    [ObservableProperty]
     private string _configStatus = string.Empty;
-    public string ConfigStatus
-    {
-        get => _configStatus;
-        set => SetProperty(ref _configStatus, value);
-    }
 
+    [ObservableProperty]
     private bool _isConfigSaved;
-    public bool IsConfigSaved
-    {
-        get => _isConfigSaved;
-        set => SetProperty(ref _isConfigSaved, value);
-    }
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasConnectionResult))]
     private string _connectionResult = string.Empty;
-    public string ConnectionResult
-    {
-        get => _connectionResult;
-        set
-        {
-            SetProperty(ref _connectionResult, value);
-            OnPropertyChanged(nameof(HasConnectionResult));
-        }
-    }
 
     public bool HasConnectionResult => !string.IsNullOrEmpty(ConnectionResult);
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasConfigResult))]
     private string _configResult = string.Empty;
-    public string ConfigResult
-    {
-        get => _configResult;
-        set
-        {
-            SetProperty(ref _configResult, value);
-            OnPropertyChanged(nameof(HasConfigResult));
-        }
-    }
 
     public bool HasConfigResult => !string.IsNullOrEmpty(ConfigResult);
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasDevices))]
     private string _deviceCount = string.Empty;
-    public string DeviceCount
-    {
-        get => _deviceCount;
-        set
-        {
-            SetProperty(ref _deviceCount, value);
-            OnPropertyChanged(nameof(HasDevices));
-        }
-    }
 
     public bool HasDevices => Devices.Count > 0;
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasScenes))]
     private string _sceneCount = string.Empty;
-    public string SceneCount
-    {
-        get => _sceneCount;
-        set
-        {
-            SetProperty(ref _sceneCount, value);
-            OnPropertyChanged(nameof(HasScenes));
-        }
-    }
 
     public bool HasScenes => Scenes.Count > 0;
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasControlResult))]
     private string _controlResult = string.Empty;
-    public string ControlResult
-    {
-        get => _controlResult;
-        set
-        {
-            SetProperty(ref _controlResult, value);
-            OnPropertyChanged(nameof(HasControlResult));
-        }
-    }
 
     public bool HasControlResult => !string.IsNullOrEmpty(ControlResult);
 
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasError))]
     private string _errorMessage = string.Empty;
-    public string ErrorMessage
-    {
-        get => _errorMessage;
-        set
-        {
-            SetProperty(ref _errorMessage, value);
-            OnPropertyChanged(nameof(HasError));
-        }
-    }
 
     public bool HasError => !string.IsNullOrEmpty(ErrorMessage);
-
-    public ICommand SaveConfigCommand { get; }
-    public ICommand TestConnectionCommand { get; }
-    public ICommand GetConfigCommand { get; }
-    public ICommand GetDevicesCommand { get; }
-    public ICommand GetScenesCommand { get; }
-    public ICommand TurnOnCommand { get; }
-    public ICommand TurnOffCommand { get; }
-    public ICommand ToggleCommand { get; }
-    public ICommand ActivateSceneCommand { get; }
 
     public HomeAssistantTestViewModel(IHomeAssistantService homeAssistantService)
     {
@@ -143,19 +72,10 @@ public class HomeAssistantTestViewModel : BaseViewModel
         // Load saved config
         Url = Preferences.Get("HA_Url", "");
         Token = Preferences.Get("HA_Token", "");
-
-        SaveConfigCommand = new Command(OnSaveConfig);
-        TestConnectionCommand = new Command(async () => await OnTestConnection());
-        GetConfigCommand = new Command(async () => await OnGetConfig());
-        GetDevicesCommand = new Command(async () => await OnGetDevices());
-        GetScenesCommand = new Command(async () => await OnGetScenes());
-        TurnOnCommand = new Command(async () => await OnTurnOn());
-        TurnOffCommand = new Command(async () => await OnTurnOff());
-        ToggleCommand = new Command(async () => await OnToggle());
-        ActivateSceneCommand = new Command<string>(async (sceneId) => await OnActivateScene(sceneId));
     }
 
-    private void OnSaveConfig()
+    [RelayCommand]
+    private void SaveConfig()
     {
         if (string.IsNullOrWhiteSpace(Url) || string.IsNullOrWhiteSpace(Token))
         {
@@ -176,7 +96,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         ErrorMessage = string.Empty;
     }
 
-    private async Task OnTestConnection()
+    [RelayCommand]
+    private async Task TestConnectionAsync()
     {
         try
         {
@@ -207,7 +128,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnGetConfig()
+    [RelayCommand]
+    private async Task GetConfigAsync()
     {
         try
         {
@@ -236,7 +158,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnGetDevices()
+    [RelayCommand]
+    private async Task GetDevicesAsync()
     {
         try
         {
@@ -266,7 +189,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnGetScenes()
+    [RelayCommand]
+    private async Task GetScenesAsync()
     {
         try
         {
@@ -296,7 +220,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnTurnOn()
+    [RelayCommand]
+    private async Task TurnOnAsync()
     {
         try
         {
@@ -328,7 +253,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnTurnOff()
+    [RelayCommand]
+    private async Task TurnOffAsync()
     {
         try
         {
@@ -360,7 +286,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnToggle()
+    [RelayCommand]
+    private async Task ToggleAsync()
     {
         try
         {
@@ -392,7 +319,8 @@ public class HomeAssistantTestViewModel : BaseViewModel
         }
     }
 
-    private async Task OnActivateScene(string? sceneId)
+    [RelayCommand]
+    private async Task ActivateSceneAsync(string? sceneId)
     {
         try
         {

@@ -1,38 +1,23 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using SmartHouse.Services;
 
 namespace SmartHouse.ViewModels;
 
-public class OnboardingViewModel : BaseViewModel
+public partial class OnboardingViewModel : BaseViewModel
 {
     private readonly IHomeAssistantService _homeAssistantService;
 
+    [ObservableProperty]
     private string _url = string.Empty;
-    public string Url
-    {
-        get => _url;
-        set => SetProperty(ref _url, value);
-    }
 
+    [ObservableProperty]
     private string _token = string.Empty;
-    public string Token
-    {
-        get => _token;
-        set => SetProperty(ref _token, value);
-    }
 
+    [ObservableProperty]
     private bool _isConnecting;
-    public bool IsConnecting
-    {
-        get => _isConnecting;
-        set => SetProperty(ref _isConnecting, value);
-    }
 
+    [ObservableProperty]
     private string _statusMessage = string.Empty;
-    public string StatusMessage
-    {
-        get => _statusMessage;
-        set => SetProperty(ref _statusMessage, value);
-    }
 
     public OnboardingViewModel(IHomeAssistantService homeAssistantService)
     {

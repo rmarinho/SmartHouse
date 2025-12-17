@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace SmartHouse.ViewModels;
 
-public class AlertsViewModel : BaseViewModel
+public partial class AlertsViewModel : BaseViewModel
 {
     public ObservableCollection<Alert> CriticalAlerts { get; } = new();
     public ObservableCollection<Alert> Warnings { get; } = new();

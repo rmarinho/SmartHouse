@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace SmartHouse.ViewModels;
 
-public class AutomateViewModel : BaseViewModel
+public partial class AutomateViewModel : BaseViewModel
 {
     public ObservableCollection<Automation> ActiveAutomations { get; } = new();
     public ObservableCollection<Automation> InactiveAutomations { get; } = new();

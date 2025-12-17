@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.ComponentModel;
 using SmartHouse.Models;
 using SmartHouse.Services;
 using System.Collections.ObjectModel;
@@ -5,7 +6,7 @@ using DeviceModel = SmartHouse.Models.Device;
 
 namespace SmartHouse.ViewModels;
 
-public class HomeViewModel : BaseViewModel
+public partial class HomeViewModel : BaseViewModel
 {
     private readonly IDataService _dataService;
     private readonly IHomeAssistantService _homeAssistantService;
@@ -13,26 +14,14 @@ public class HomeViewModel : BaseViewModel
     public ObservableCollection<Scene> QuickScenes { get; } = new();
     public ObservableCollection<DeviceModel> FavoriteDevices { get; } = new();
 
+    [ObservableProperty]
     private string _energyUsage = "2.4 kWh";
-    public string EnergyUsage
-    {
-        get => _energyUsage;
-        set => SetProperty(ref _energyUsage, value);
-    }
 
+    [ObservableProperty]
     private string _securityStatus = "Armed";
-    public string SecurityStatus
-    {
-        get => _securityStatus;
-        set => SetProperty(ref _securityStatus, value);
-    }
 
+    [ObservableProperty]
     private string _temperature = "21°C";
-    public string Temperature
-    {
-        get => _temperature;
-        set => SetProperty(ref _temperature, value);
-    }
 
     public HomeViewModel(IDataService dataService, IHomeAssistantService homeAssistantService)
     {
