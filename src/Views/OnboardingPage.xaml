@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartHouse.Views.OnboardingPage"
              Title="Welcome to Casa"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Background="{DynamicResource PageBackgroundColor}"
              Shell.NavBarIsVisible="False">
     
     <Grid RowDefinitions="*,Auto" Padding="30">
@@ -35,25 +35,25 @@
                            FontSize="20" 
                            FontAttributes="Bold" />
                     
-                    <Frame CornerRadius="15" 
-                           HasShadow="False" 
+                    <Border StrokeThickness="0" 
                            Padding="0" 
-                           BackgroundColor="{DynamicResource CardBackgroundColor}">
+                           Background="{DynamicResource CardBackgroundColor}"
+                           StrokeShape="RoundRectangle 15">
                         <Entry Placeholder="Home Assistant URL" 
                                Text="{Binding Url}"
                                Keyboard="Url"
                                Margin="15,10" />
-                    </Frame>
+                    </Border>
                     
-                    <Frame CornerRadius="15" 
-                           HasShadow="False" 
+                    <Border StrokeThickness="0" 
                            Padding="0" 
-                           BackgroundColor="{DynamicResource CardBackgroundColor}">
+                           Background="{DynamicResource CardBackgroundColor}"
+                           StrokeShape="RoundRectangle 15">
                         <Entry Placeholder="Access Token" 
                                Text="{Binding Token}"
                                IsPassword="True"
                                Margin="15,10" />
-                    </Frame>
+                    </Border>
                     
                     <!-- Status Message -->
                     <Label Text="{Binding StatusMessage}" 
@@ -64,10 +64,10 @@
                            Margin="0,10,0,0" />
                     
                     <!-- Help Text -->
-                    <Frame CornerRadius="15" 
-                           HasShadow="False" 
+                    <Border StrokeThickness="0" 
                            Padding="15" 
-                           BackgroundColor="#EEF2FF">
+                           Background="#EEF2FF"
+                           StrokeShape="RoundRectangle 15">
                         <VerticalStackLayout Spacing="8">
                             <Label Text="💡 How to get your token:" 
                                    FontSize="14" 
@@ -79,7 +79,7 @@
                             <Label Text="3. Create a new token and paste it here" 
                                    FontSize="12" />
                         </VerticalStackLayout>
-                    </Frame>
+                    </Border>
                     
                 </VerticalStackLayout>
                 
@@ -91,7 +91,7 @@
             <Button Text="Connect" 
                     FontSize="16"
                     FontAttributes="Bold"
-                    BackgroundColor="{DynamicResource Primary}" 
+                    Background="{DynamicResource Primary}" 
                     TextColor="White"
                     CornerRadius="15"
                     HeightRequest="55"
@@ -99,7 +99,7 @@
             
             <Button Text="Skip for now" 
                     FontSize="14"
-                    BackgroundColor="Transparent"
+                    Background="Transparent"
                     TextColor="{DynamicResource Gray600}"
                     Clicked="OnSkipClicked" />
         </VerticalStackLayout>

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartHouse.Views.AlertsPage"
              Title="Alerts"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             Background="{DynamicResource PageBackgroundColor}">
     
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
@@ -13,7 +13,7 @@
             <Label Text="Critical Alerts" FontSize="18" FontAttributes="Bold" TextColor="#EF4444" Margin="0,10,0,0" />
             
             <!-- Alert 1 - Critical -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#EF4444" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="1" Padding="20" Stroke="#EF4444" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
                         <Label Grid.Column="0" Text="🚨" FontSize="32" VerticalOptions="Start" />
@@ -24,17 +24,17 @@
                         </VerticalStackLayout>
                     </Grid>
                     <Button Text="View Details" 
-                            BackgroundColor="#EF4444" 
+                            Background="#EF4444" 
                             TextColor="White" 
                             CornerRadius="10"
                             HeightRequest="40" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <Label Text="Warnings" FontSize="18" FontAttributes="Bold" TextColor="#F59E0B" Margin="0,20,0,0" />
             
             <!-- Alert 2 - Warning -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#F59E0B" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="1" Padding="20" Stroke="#F59E0B" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="🚪" FontSize="32" VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -43,13 +43,13 @@
                         <Label Text="15 minutes ago" FontSize="12" TextColor="{DynamicResource Gray600}" />
                     </VerticalStackLayout>
                 </Grid>
-                <Frame.GestureRecognizers>
+                <Border.GestureRecognizers>
                     <TapGestureRecognizer />
-                </Frame.GestureRecognizers>
-            </Frame>
+                </Border.GestureRecognizers>
+            </Border>
             
             <!-- Alert 3 - Warning -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BorderColor="#F59E0B" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="1" Padding="20" Stroke="#F59E0B" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <Grid ColumnDefinitions="Auto,*" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="🔋" FontSize="32" VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -58,15 +58,15 @@
                         <Label Text="1 hour ago" FontSize="12" TextColor="{DynamicResource Gray600}" />
                     </VerticalStackLayout>
                 </Grid>
-                <Frame.GestureRecognizers>
+                <Border.GestureRecognizers>
                     <TapGestureRecognizer />
-                </Frame.GestureRecognizers>
-            </Frame>
+                </Border.GestureRecognizers>
+            </Border>
             
             <Label Text="Recent Activity" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
             
             <!-- Activity 1 -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="💡" FontSize="28" VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -75,10 +75,10 @@
                     </VerticalStackLayout>
                     <Label Grid.Column="2" Text="5m ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
                 </Grid>
-            </Frame>
+            </Border>
             
             <!-- Activity 2 -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="🌡️" FontSize="28" VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -87,10 +87,10 @@
                     </VerticalStackLayout>
                     <Label Grid.Column="2" Text="12m ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
                 </Grid>
-            </Frame>
+            </Border>
             
             <!-- Activity 3 -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="🔒" FontSize="28" VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -99,7 +99,7 @@
                     </VerticalStackLayout>
                     <Label Grid.Column="2" Text="1h ago" FontSize="12" TextColor="{DynamicResource Gray600}" VerticalOptions="Center" />
                 </Grid>
-            </Frame>
+            </Border>
             
         </VerticalStackLayout>
     </ScrollView>

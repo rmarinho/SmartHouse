@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartHouse.Views.AutomatePage"
              Title="Automate"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             Background="{DynamicResource PageBackgroundColor}">
     
     <Grid RowDefinitions="*,Auto" Padding="20">
         
@@ -15,7 +15,7 @@
                 <Label Text="Active" FontSize="18" FontAttributes="Bold" Margin="0,10,0,0" />
                 
                 <!-- Automation 1 -->
-                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                         <Label Grid.Column="0" Text="🌙" FontSize="32" VerticalOptions="Center" />
                         <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -24,13 +24,13 @@
                         </VerticalStackLayout>
                         <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
-                    <Frame.GestureRecognizers>
+                    <Border.GestureRecognizers>
                         <TapGestureRecognizer />
-                    </Frame.GestureRecognizers>
-                </Frame>
+                    </Border.GestureRecognizers>
+                </Border>
                 
                 <!-- Automation 2 -->
-                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                         <Label Grid.Column="0" Text="🏃" FontSize="32" VerticalOptions="Center" />
                         <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -39,13 +39,13 @@
                         </VerticalStackLayout>
                         <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
-                    <Frame.GestureRecognizers>
+                    <Border.GestureRecognizers>
                         <TapGestureRecognizer />
-                    </Frame.GestureRecognizers>
-                </Frame>
+                    </Border.GestureRecognizers>
+                </Border>
                 
                 <!-- Automation 3 -->
-                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                         <Label Grid.Column="0" Text="🌡️" FontSize="32" VerticalOptions="Center" />
                         <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -54,15 +54,15 @@
                         </VerticalStackLayout>
                         <Switch Grid.Column="2" IsToggled="True" VerticalOptions="Center" />
                     </Grid>
-                    <Frame.GestureRecognizers>
+                    <Border.GestureRecognizers>
                         <TapGestureRecognizer />
-                    </Frame.GestureRecognizers>
-                </Frame>
+                    </Border.GestureRecognizers>
+                </Border>
                 
                 <Label Text="Inactive" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
                 
                 <!-- Automation 4 -->
-                <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}" Opacity="0.6">
+                <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15" Opacity="0.6">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                         <Label Grid.Column="0" Text="🚪" FontSize="32" VerticalOptions="Center" />
                         <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
@@ -71,10 +71,10 @@
                         </VerticalStackLayout>
                         <Switch Grid.Column="2" IsToggled="False" VerticalOptions="Center" />
                     </Grid>
-                    <Frame.GestureRecognizers>
+                    <Border.GestureRecognizers>
                         <TapGestureRecognizer />
-                    </Frame.GestureRecognizers>
-                </Frame>
+                    </Border.GestureRecognizers>
+                </Border>
                 
             </VerticalStackLayout>
         </ScrollView>
@@ -84,7 +84,7 @@
                 Text="+ Create Automation" 
                 FontSize="16"
                 FontAttributes="Bold"
-                BackgroundColor="{DynamicResource Primary}" 
+                Background="{DynamicResource Primary}" 
                 TextColor="White"
                 CornerRadius="15"
                 HeightRequest="55"

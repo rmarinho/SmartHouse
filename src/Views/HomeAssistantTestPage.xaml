@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SmartHouse.Views.HomeAssistantTestPage"
              Title="Home Assistant Test"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+             Background="{DynamicResource PageBackgroundColor}">
     
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
@@ -11,7 +11,7 @@
             <Label Text="Home Assistant API Test" FontSize="28" FontAttributes="Bold" />
             
             <!-- Connection Info -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Connection" FontSize="18" FontAttributes="Bold" />
                     
@@ -25,7 +25,7 @@
                     
                     <Button Text="Save Configuration"
                             Command="{Binding SaveConfigCommand}"
-                            BackgroundColor="{DynamicResource Primary}"
+                            Background="{DynamicResource Primary}"
                             TextColor="White"
                             CornerRadius="10"
                             Margin="0,10,0,0" />
@@ -35,16 +35,16 @@
                            TextColor="#10B981"
                            IsVisible="{Binding IsConfigSaved}" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Test Connection -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Test Connection" FontSize="18" FontAttributes="Bold" />
                     
                     <Button Text="Test API Connection"
                             Command="{Binding TestConnectionCommand}"
-                            BackgroundColor="#6366F1"
+                            Background="#6366F1"
                             TextColor="White"
                             CornerRadius="10" />
                     
@@ -52,16 +52,16 @@
                            FontSize="14"
                            IsVisible="{Binding HasConnectionResult}" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Get Config -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Get Configuration" FontSize="18" FontAttributes="Bold" />
                     
                     <Button Text="Get HA Config"
                             Command="{Binding GetConfigCommand}"
-                            BackgroundColor="#10B981"
+                            Background="#10B981"
                             TextColor="White"
                             CornerRadius="10" />
                     
@@ -70,16 +70,16 @@
                            LineBreakMode="WordWrap"
                            IsVisible="{Binding HasConfigResult}" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Get Devices -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Get Devices" FontSize="18" FontAttributes="Bold" />
                     
                     <Button Text="Load All Devices"
                             Command="{Binding GetDevicesCommand}"
-                            BackgroundColor="#F59E0B"
+                            Background="#F59E0B"
                             TextColor="White"
                             CornerRadius="10" />
                     
@@ -93,7 +93,7 @@
                                     MaximumHeightRequest="300">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame Padding="10" Margin="0,5" CornerRadius="10" BackgroundColor="#F3F4F6">
+                                <Border Padding="10" Margin="0,5" StrokeThickness="0" Background="#F3F4F6" StrokeShape="RoundRectangle 10">
                                     <VerticalStackLayout Spacing="5">
                                         <Label Text="{Binding Name}" FontSize="14" FontAttributes="Bold" />
                                         <Label Text="{Binding Id}" FontSize="11" TextColor="{DynamicResource Gray600}" />
@@ -102,15 +102,15 @@
                                             <Label Text="{Binding State}" FontSize="11" FontAttributes="Bold" />
                                         </HorizontalStackLayout>
                                     </VerticalStackLayout>
-                                </Frame>
+                                </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Control Device -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Control Device" FontSize="18" FontAttributes="Bold" />
                     
@@ -121,21 +121,21 @@
                         <Button Grid.Column="0"
                                 Text="Turn On"
                                 Command="{Binding TurnOnCommand}"
-                                BackgroundColor="#10B981"
+                                Background="#10B981"
                                 TextColor="White"
                                 CornerRadius="10" />
                         
                         <Button Grid.Column="1"
                                 Text="Turn Off"
                                 Command="{Binding TurnOffCommand}"
-                                BackgroundColor="#EF4444"
+                                Background="#EF4444"
                                 TextColor="White"
                                 CornerRadius="10" />
                     </Grid>
                     
                     <Button Text="Toggle"
                             Command="{Binding ToggleCommand}"
-                            BackgroundColor="#6366F1"
+                            Background="#6366F1"
                             TextColor="White"
                             CornerRadius="10" />
                     
@@ -143,16 +143,16 @@
                            FontSize="12"
                            IsVisible="{Binding HasControlResult}" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Get Scenes -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+            <Border StrokeThickness="0" Padding="20" Background="{DynamicResource CardBackgroundColor}" StrokeShape="RoundRectangle 15">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="Scenes" FontSize="18" FontAttributes="Bold" />
                     
                     <Button Text="Load Scenes"
                             Command="{Binding GetScenesCommand}"
-                            BackgroundColor="#8B5CF6"
+                            Background="#8B5CF6"
                             TextColor="White"
                             CornerRadius="10" />
                     
@@ -164,29 +164,29 @@
                                     IsVisible="{Binding HasScenes}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Frame Padding="10" Margin="0,5" CornerRadius="10" BackgroundColor="#F3F4F6">
+                                <Border Padding="10" Margin="0,5" StrokeThickness="0" Background="#F3F4F6" StrokeShape="RoundRectangle 10">
                                     <Grid ColumnDefinitions="Auto,*,Auto">
                                         <Label Grid.Column="0" Text="{Binding Icon}" FontSize="20" VerticalOptions="Center" />
                                         <Label Grid.Column="1" Text="{Binding Name}" FontSize="14" VerticalOptions="Center" Margin="10,0" />
                                         <Button Grid.Column="2" 
                                                 Text="▶" 
                                                 FontSize="16"
-                                                BackgroundColor="{DynamicResource Primary}"
+                                                Background="{DynamicResource Primary}"
                                                 TextColor="White"
                                                 CornerRadius="5"
                                                 Padding="10,5"
                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ActivateSceneCommand}"
                                                 CommandParameter="{Binding Id}" />
                                     </Grid>
-                                </Frame>
+                                </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
             <!-- Error Log -->
-            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="#FEF2F2" IsVisible="{Binding HasError}">
+            <Border StrokeThickness="0" Padding="20" Background="#FEF2F2" StrokeShape="RoundRectangle 15" IsVisible="{Binding HasError}">
                 <VerticalStackLayout Spacing="10">
                     <Label Text="❌ Error" FontSize="16" FontAttributes="Bold" TextColor="#EF4444" />
                     <Label Text="{Binding ErrorMessage}" 
@@ -194,7 +194,7 @@
                            TextColor="#991B1B"
                            LineBreakMode="WordWrap" />
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
             
         </VerticalStackLayout>
     </ScrollView>
