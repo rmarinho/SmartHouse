@@ -28,7 +28,7 @@
             </Frame>
             
             <!-- Users Section -->
-            <Label Text="Users & Access" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
+            <Label Text="Users and Access" FontSize="18" FontAttributes="Bold" Margin="0,20,0,0" />
             
             <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
@@ -144,8 +144,22 @@
             
             <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
+                    <Label Grid.Column="0" Text="🔄" FontSize="28" VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                        <Label Text="Reset Onboarding" FontSize="16" FontAttributes="Bold" />
+                        <Label Text="Go back to setup screen" FontSize="12" TextColor="{DynamicResource Gray600}" />
+                    </VerticalStackLayout>
+                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
+                </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnResetOnboardingTapped" />
+                </Frame.GestureRecognizers>
+            </Frame>
+            
+            <Frame CornerRadius="15" HasShadow="False" Padding="20" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="15">
                     <Label Grid.Column="0" Text="❓" FontSize="28" VerticalOptions="Center" />
-                    <Label Grid.Column="1" Text="Help & Support" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
+                    <Label Grid.Column="1" Text="Help and Support" FontSize="16" FontAttributes="Bold" VerticalOptions="Center" />
                     <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{DynamicResource Gray400}" VerticalOptions="Center" />
                 </Grid>
                 <Frame.GestureRecognizers>

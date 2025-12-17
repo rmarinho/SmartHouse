@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartHouse.Views.OnboardingPage"
+             Title="Welcome to Casa"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             Shell.NavBarIsVisible="False">
+    
+    <Grid RowDefinitions="*,Auto" Padding="30">
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="30" VerticalOptions="Center">
+                
+                <!-- Logo/Icon -->
+                <Label Text="🏠" 
+                       FontSize="80" 
+                       HorizontalOptions="Center" />
+                
+                <!-- Welcome Text -->
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Welcome to Casa" 
+                           FontSize="32" 
+                           FontAttributes="Bold" 
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Control your smart home from one place" 
+                           FontSize="16" 
+                           TextColor="{DynamicResource Gray600}" 
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+                
+                <!-- Connection Form -->
+                <VerticalStackLayout Spacing="20" Margin="0,30,0,0">
+                    
+                    <Label Text="Connect to Home Assistant" 
+                           FontSize="20" 
+                           FontAttributes="Bold" />
+                    
+                    <Frame CornerRadius="15" 
+                           HasShadow="False" 
+                           Padding="0" 
+                           BackgroundColor="{DynamicResource CardBackgroundColor}">
+                        <Entry Placeholder="Home Assistant URL" 
+                               Text="{Binding Url}"
+                               Keyboard="Url"
+                               Margin="15,10" />
+                    </Frame>
+                    
+                    <Frame CornerRadius="15" 
+                           HasShadow="False" 
+                           Padding="0" 
+                           BackgroundColor="{DynamicResource CardBackgroundColor}">
+                        <Entry Placeholder="Access Token" 
+                               Text="{Binding Token}"
+                               IsPassword="True"
+                               Margin="15,10" />
+                    </Frame>
+                    
+                    <!-- Status Message -->
+                    <Label Text="{Binding StatusMessage}" 
+                           FontSize="14"
+                           TextColor="{DynamicResource Primary}"
+                           HorizontalTextAlignment="Center"
+                           IsVisible="{Binding StatusMessage, Converter={StaticResource StringIsNotNullOrEmptyConverter}}"
+                           Margin="0,10,0,0" />
+                    
+                    <!-- Help Text -->
+                    <Frame CornerRadius="15" 
+                           HasShadow="False" 
+                           Padding="15" 
+                           BackgroundColor="#EEF2FF">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="💡 How to get your token:" 
+                                   FontSize="14" 
+                                   FontAttributes="Bold" />
+                            <Label Text="1. Open Home Assistant" 
+                                   FontSize="12" />
+                            <Label Text="2. Go to Profile → Long-Lived Access Tokens" 
+                                   FontSize="12" />
+                            <Label Text="3. Create a new token and paste it here" 
+                                   FontSize="12" />
+                        </VerticalStackLayout>
+                    </Frame>
+                    
+                </VerticalStackLayout>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <!-- Bottom Buttons -->
+        <VerticalStackLayout Grid.Row="1" Spacing="15">
+            <Button Text="Connect" 
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    BackgroundColor="{DynamicResource Primary}" 
+                    TextColor="White"
+                    CornerRadius="15"
+                    HeightRequest="55"
+                    Clicked="OnConnectClicked" />
+            
+            <Button Text="Skip for now" 
+                    FontSize="14"
+                    BackgroundColor="Transparent"
+                    TextColor="{DynamicResource Gray600}"
+                    Clicked="OnSkipClicked" />
+        </VerticalStackLayout>
+        
+    </Grid>
+</ContentPage>

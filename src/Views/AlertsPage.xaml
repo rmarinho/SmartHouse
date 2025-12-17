@@ -8,7 +8,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
             
-            <Label Text="Alerts & Activity" FontSize="32" FontAttributes="Bold" />
+            <Label Text="Alerts and Activity" FontSize="32" FontAttributes="Bold" />
             
             <Label Text="Critical Alerts" FontSize="18" FontAttributes="Bold" TextColor="#EF4444" Margin="0,10,0,0" />
             

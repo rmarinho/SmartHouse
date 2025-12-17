@@ -11,6 +11,23 @@ public partial class App : Application
 
 	protected override Window CreateWindow(IActivationState? activationState)
 	{
-		return new Window(new AppShell());
+		// Check if user has completed onboarding
+		var hasCompletedOnboarding = Preferences.Get("HasCompletedOnboarding", false);
+		
+		if (hasCompletedOnboarding)
+		{
+			// Go to main app
+			return new Window(new AppShell());
+		}
+		else
+		{
+			// Show onboarding first
+			var onboardingPage = Handler?.MauiContext?.Services.GetService<Views.OnboardingPage>();
+			if (onboardingPage != null)
+			{
+				return new Window(onboardingPage);
+			}
+			return new Window(new AppShell());
+		}
 	}
 }
